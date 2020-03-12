@@ -51,7 +51,7 @@ $server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterfac
     );
 });
 
-$socket = new React\Socket\Server(8080, $loop);
+$socket = new React\Socket\Server('0.0.0.0:8080', $loop);
 $server->listen($socket);
-echo "Server running at http://127.0.0.1:8080\n CTRL+C to exit.\n";
+echo "Server running at http://127.0.0.1:8080\n (bound to all interfaces) CTRL+C to exit.\n";
 $loop->run();
