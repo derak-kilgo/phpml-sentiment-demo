@@ -1,0 +1,28 @@
+{
+  "name": "derak-kilgo/sa-demo",
+  "description": "A sentiment Analysis demo in php",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Derak Kilgo",
+      "email": "derak.kilgo@gmail.com"
+    }
+  ],
+  "require": {
+    "jwhennessey/phpinsight": "v2.0.9",
+    "risan/sentiment-analysis": "dev-master",
+    "davmixcool/php-sentiment-analyzer": "^1.0",
+    "dmitry-udod/php-sentiment": "^4.1",
+    "tomlerendu/sentiment-analyzer": "^0.2.1",
+    "certifiedwebninja/caroline": "^1.0",
+    "php-ai/php-ml": "0.8.0",
+    "react/http": "^0.8.5",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Demo\\": "src/"
+    }
+  }
+}
