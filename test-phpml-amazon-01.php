@@ -35,16 +35,16 @@ $dataset = new CustomCsv(0,1,
 $split = new StratifiedRandomSplit($dataset, 0.1);
 unset($dataset);
 
-echo "assemble pipeline...\n";
+echo "Assemble pipeline...\n";
 $pipeline = new Pipeline([
     new TokenCountVectorizer(new NGramTokenizer(3, 5), new English()),
     new TfIdfTransformer()
 ], new NaiveBayes());
 
-echo "training model...\n";
+echo "Training model...\n";
 $pipeline->train($split->getTrainSamples(),$split->getTrainLabels());
 
-echo "testing model ...\n";
+echo "Testing model ...\n";
 $predicted = $pipeline->predict($split->getTestSamples());
 echo 'Accuracy: ' . Accuracy::score($split->getTestLabels(), $predicted) . "\n";
 
