@@ -33,10 +33,11 @@ $modelFile = __DIR__ . '/data/amazonreview.phpml';
 /** @var Pipeline $pipeline */
 $pipeline = $modelManager->restoreFromFile($modelFile);
 
+//I have a 16GB of ram and this was the most items I was able to load without an out of memory error.
 $filelist = [
-//    __DIR__ . '/data/amazonreviews/split/xab',
-//    __DIR__ . '/data/amazonreviews/split/xac',
-//    __DIR__ . '/data/amazonreviews/split/xad',
+    __DIR__ . '/data/amazonreviews/split/xab',
+    __DIR__ . '/data/amazonreviews/split/xac',
+    __DIR__ . '/data/amazonreviews/split/xad',
 ];
 
 foreach($filelist as $file){
