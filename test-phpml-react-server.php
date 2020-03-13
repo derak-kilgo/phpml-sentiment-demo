@@ -1,12 +1,10 @@
 <?php
+ini_set('memory_limit',-1);
 
 use Phpml\ModelManager;
 use Sentiment\Analyzer;
 
-ini_set('memory_limit','12G');
-
 require __DIR__ .'/vendor/autoload.php';
-$loop = React\EventLoop\Factory::create();
 
 $modelManager = new ModelManager();
 $pipeline = $modelManager->restoreFromFile(__DIR__ . '/data/amazonreview.phpml');
@@ -17,6 +15,7 @@ $server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterfac
     if(isset($params['test'])){
         $test = $params['test'];
     }
+
     $label = $pipeline->predict([$test]);
 
     //Using a different tools for analysis.
@@ -36,12 +35,12 @@ $server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterfac
                     [
                         'result'=>$label
                     ],
-                'risan'=>
+                'lib_risan'=>
                     [
                         'result'=>$result->category(),
                         'score'=>$result->scores()
                     ],
-                'vader'=>
+                'lib_vader'=>
                 [
                     'result'=>$vader
                 ]
